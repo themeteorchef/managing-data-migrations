@@ -1,4 +1,4 @@
-#### Tutorial: Managing <Data Migrations in Meteor
+#### Tutorial: Managing MongoDB Data Migrations in Meteor
 
 Description of this tutorial goes here. Used in your tutorial repo's README.md file.
 
