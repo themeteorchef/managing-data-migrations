@@ -1,6 +1,6 @@
 #### Tutorial: Managing MongoDB Data Migrations in Meteor
 
-Description of this tutorial goes here. Used in your tutorial repo's README.md file.
+In this tutorial we'll be adding a new `tags` field to the existing `Documents` collection in [Pup](http://cleverbeagle/pup)—the boilerplate used for this tutorial—learning how to use migrations to keep old data consistent with the new. We'll learn how to define our migrations, how to ensure our database is always at the "latest" version, and even discuss manually moving between versions in case of accidents or changes in our plans.
 
 [Read this tutorial on The Meteor Chef](https://themeteorchef.com/tutorials/managing-mongodb-data-migrations-in-meteor)  
 
