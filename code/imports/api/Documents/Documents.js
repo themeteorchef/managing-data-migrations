@@ -44,6 +44,14 @@ Documents.schema = new SimpleSchema({
     type: String,
     label: 'The body of the document.',
   },
+  tags: {
+    type: Array,
+    label: 'The tags for the document.',
+  },
+  'tags.$': {
+    type: String,
+    label: 'A tag for the document.',
+  },
 });
 
 Documents.attachSchema(Documents.schema);

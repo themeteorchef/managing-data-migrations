@@ -8,6 +8,8 @@ import Documents from '../../../api/Documents/Documents';
 import NotFound from '../NotFound/NotFound';
 import Loading from '../../components/Loading/Loading';
 
+import './ViewDocument.scss';
+
 const handleRemove = (documentId, history) => {
   if (confirm('Are you sure? This is permanent!')) {
     Meteor.call('documents.remove', documentId, (error) => {
@@ -35,6 +37,14 @@ const renderDocument = (doc, match, history) => (doc ? (
       </ButtonToolbar>
     </div>
     { doc && doc.body }
+    {doc && doc.tags ? <div className="tags">
+      <h5>Tags:</h5>
+      <ul>
+        {doc.tags.map(tag => (
+          <li key={tag} className="text-muted">{tag}</li>
+        ))}
+      </ul>
+    </div> : ''}
   </div>
 ) : <NotFound />);
 

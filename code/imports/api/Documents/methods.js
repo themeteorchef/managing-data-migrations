@@ -8,6 +8,7 @@ Meteor.methods({
     check(doc, {
       title: String,
       body: String,
+      tags: [String],
     });
 
     try {
@@ -21,6 +22,7 @@ Meteor.methods({
       _id: String,
       title: String,
       body: String,
+      tags: [String],
     });
 
     try {

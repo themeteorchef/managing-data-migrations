@@ -18,6 +18,9 @@ class DocumentEditor extends React.Component {
         body: {
           required: true,
         },
+        tags: {
+          required: true,
+        },
       },
       messages: {
         title: {
@@ -25,6 +28,9 @@ class DocumentEditor extends React.Component {
         },
         body: {
           required: 'This thneeds a body, please.',
+        },
+        tags: {
+          required: 'Tag this with some tags, tagger.',
         },
       },
       submitHandler() { component.handleSubmit(); },
@@ -38,6 +44,7 @@ class DocumentEditor extends React.Component {
     const doc = {
       title: this.title.value.trim(),
       body: this.body.value.trim(),
+      tags: this.tags.value.split(',').map(tag => tag.trim()).filter(Boolean),
     };
 
     if (existingDocument) doc._id = existingDocument;
@@ -78,6 +85,17 @@ class DocumentEditor extends React.Component {
           placeholder="Congratulations! Today is your day. You're off to Great Places! You're off and away!"
         />
       </FormGroup>
+      <FormGroup>
+        <ControlLabel>Tags</ControlLabel>
+        <input
+          type="text"
+          className="form-control"
+          name="title"
+          ref={tags => (this.tags = tags)}
+          defaultValue={doc && doc.tags}
+          placeholder="books, games, movies"
+        />
+      </FormGroup>
       <Button type="submit" bsStyle="success">
         {doc && doc._id ? 'Save Changes' : 'Add Document'}
       </Button>
@@ -86,7 +104,7 @@ class DocumentEditor extends React.Component {
 }
 
 DocumentEditor.defaultProps = {
-  doc: { title: '', body: '' },
+  doc: { title: '', body: '', tags: [] },
 };
 
 DocumentEditor.propTypes = {
